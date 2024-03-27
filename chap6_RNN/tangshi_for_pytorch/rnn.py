@@ -46,6 +46,7 @@ class RNN_model(nn.Module):
         # the lstm should have two layers, and the  input and output tensors are provided as (batch, seq, feature)
         # ???
 
+        self.rnn_lstm = nn.LSTM(embedding_dim, lstm_hidden_dim, num_layers=2, batch_first=True)
 
 
         ##########################################
@@ -63,6 +64,8 @@ class RNN_model(nn.Module):
         # ???
 
 
+
+        output, (hn, cn) = self.rnn_lstm(batch_input)
 
 
         ################################################
